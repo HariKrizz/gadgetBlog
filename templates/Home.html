@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block body %}     
+  <br>                         
+      <u style="color: orangered;"><h1 style="color: orangered;">Gadgets Available in Stock</h1></u>
+      <br>
+      <marquee><h4 style="color: crimson;">♦♦♦...New stocks available...♦♦♦</h4></marquee>
+      <br>
+      {% for i in gadgets  %}
+
+      <div class="row row-cols-2 row-cols-md-6 g-0">
+        <div class="card">
+          <img src= {{i.Image.url}} class="card-img-top" alt="..." style="height: 170px; width: 251px;">
+          <div class="card-body">
+            <h5 class="card-title">{{i.Name}}</h5>
+            <p class="card-text">₹ {{i.Price}}</p>
+          </div>
+                <a class="btn btn-success" href="{% url 'gadgsdetails' i.id %}" style="width: fit-content;">Learn More</a>
+              </div>
+            </div>
+        </div>
+        <br>
+      {% endfor %}
+  {% endblock %}
+    

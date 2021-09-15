@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add new Gadget</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+    </head>
+    <body> 
+        {% block body %}
+        <center>
+            <br>
+            <h2 style="color: crimson;">Add new Gadget</h2>
+            <br>
+            <div class="row mb-4">
+                <form method="POST" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    <label for="Name" class="col-sm-2 col-form-label">Gadget Name</label>
+                    <input type="text" name="name" placeholder="Gadget Name">
+                    <br>       
+                    <label for="Description" class="col-sm-2 col-form-label">Year</label>
+                    <input type="text" name="year" placeholder="Year">
+                    <br>
+                    <label for="Image" class="col-sm-2 col-form-label">Image</label>
+                    <input type="file" name="image" placeholder="Image" >
+                    <br>
+                    <label for="Price" class="col-sm-2 col-form-label">Price</label>
+                    <input type="text" name="price" placeholder="Price">
+                    <br>
+                    <br>
+                    <br>
+                    <button class="btn btn-success">Add Gadget</button>
+                    </form>
+            </div>
+        </center>
+        {% endblock %}
+    </body>
+</html>
